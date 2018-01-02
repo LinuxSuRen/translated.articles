@@ -11,10 +11,10 @@ As more organizations implement microservices, the practices of microservice arc
 随着更多的组织在实践微服务，微服务架构变得更加成熟。然而，早期的微服务活动关注在如何把单个Web程序解偶成多个服务，更大更多的组织为了提高他们的软件交付速度和可伸缩性，也正在把已有的软件生态迁移成服务。这个问题显然要比拆分大的系统要更复杂，更具有挑战性。  
 
 Modularization is fundamental to dealing with the complexity of distributed software systems. This is both the reason microservice architecture is gaining popularity, and an important reminder of how to approach it. Finding the right boundaries between services is understandably one of the main focus areas for organizations adoptingmicroservices in order to reduce coordination between teams, and there is a growing body of information on techniques to draw those boundaries. This technology-agnostic design work deals with the essential complexity of the software system, helping to improve its evolvability and sustainability over time. Once the boundaries are drawn, there is still design work that needs to be done.  
-模块化主要是为了解决复杂的分布式系统。这既是微服务架构流行起来的原因，也是指导如何进行的一个重要提示。  
+模块化主要是为了解决分布式系统的复杂性。这既是微服务架构流行起来的原因，也是指导如何着手的一个重要提示。找到服务之间正确的边界自然是很重要的，组织采用微服务减少团队直接的协调。这项与技术无关的设计工作处理必要的软件复杂性问题，用于不断地改进软件的演进和持续。即使边界划分好以后，设计工作还是不可或缺的。  
 
 # The Microservice Design Canvas
-# 微服务设计画板
+# 微服务设计面板
 The microservices movement has been driven by developers, is closely aligned with the rise of Agile methods and DevOps, and has been motivated by a desire for faster software delivery. Consequently, developers often start coding quickly and rely on emergent design to guide their work, which can result in sub-optimal service disposition over the long haul. On the other hand, an overly-involved service design process can bog down development efforts and undermine the intended benefits of microservice architecture. How can appropriate design thinking be injected into the process in a streamlined way?  
 更快的软件交付需求
 
