@@ -16,7 +16,7 @@ Modularization is fundamental to dealing with the complexity of distributed soft
 # The Microservice Design Canvas
 # 微服务设计面板
 The microservices movement has been driven by developers, is closely aligned with the rise of Agile methods and DevOps, and has been motivated by a desire for faster software delivery. Consequently, developers often start coding quickly and rely on emergent design to guide their work, which can result in sub-optimal service disposition over the long haul. On the other hand, an overly-involved service design process can bog down development efforts and undermine the intended benefits of microservice architecture. How can appropriate design thinking be injected into the process in a streamlined way?  
-更快的软件交付需求
+微服务活动被研发人员驱动着，几乎接近敏捷方法、DevOps的潮流。更快的软件交付需求也带动着微服务。随之而来的，研发人员会快速地编码，基于紧急的设计来指导他们的工作，这就导致会出现低效的服务。另外过度的服务设计也会降低开发效率，破坏微服务架构的优势。如何进行适当的设计是需要考虑的?
 
 With a hat tip to Simon Brown’s “just enough up front design” concept, the Microservice Design Canvas intends to capture the essential service attributes that can help guide development of the service itself as well as its consuming applications.  
 
