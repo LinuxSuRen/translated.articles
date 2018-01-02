@@ -8,7 +8,7 @@ This article is featured in the new DZone Guide to Microservices. Get your free 
 本文介绍了DZone新的微服务指导。可以获得更多有见地的文章、行业数据等等。  
 
 As more organizations implement microservices, the practices of microservice architecture become more mature. Whereas much of the early microservices literature focused on companies decomposing a monolithic web application into microservices, larger and more diverse organizations are now tackling how to migrate their existing software ecosystems into domains of services in order to improve their software delivery speed and scalability. This problem space is significantly more complex than breaking down the single monolith, and comes with higher-order challenges.  
-随着越来越多的组织在实践微服务，维服务架构变得更加成熟。然而，早期的微服务活动关注在如何把单个Web程序解偶成服务，为了提高他们的软件交付速度和可伸缩性，  
+随着更多的组织在实践微服务，微服务架构变得更加成熟。然而，早期的微服务活动关注在如何把单个Web程序解偶成多个服务，为了提高他们的软件交付速度和可伸缩性，  
 
 Modularization is fundamental to dealing with the complexity of distributed software systems. This is both the reason microservice architecture is gaining popularity, and an important reminder of how to approach it. Finding the right boundaries between services is understandably one of the main focus areas for organizations adoptingmicroservices in order to reduce coordination between teams, and there is a growing body of information on techniques to draw those boundaries. This technology-agnostic design work deals with the essential complexity of the software system, helping to improve its evolvability and sustainability over time. Once the boundaries are drawn, there is still design work that needs to be done.  
 模块化主要是为了解决复杂的分布式系统。这既是微服务架构流行起来的原因，也是指导如何进行的一个重要提示。  
