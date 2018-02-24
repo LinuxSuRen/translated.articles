@@ -119,6 +119,8 @@ Earlier in the year, we ran some of our Hadoop jobs on one of the cloud provider
 understanding of the effort required to migrate and the challenges that we would face in doing so at scale. For this 
 initial experiment, however, we did not use GCP, so we didn’t have the same level of understanding of the cloud 
 provider we ultimately chose.
+在今年早些时候，我们在云服务商提供的服务上运行了一些Hadoop任务，这有助于我们理解迁移的需求以及在伸缩时面临的挑战。然而，在这次实验中，我们没有
+使用GCP，因此没有对云服务商最终选择的理解上保持一致。
 
 We therefore undertook an experiment to enable batch jobs to run on GCP utilizing Dataproc and Dataflow. We learned a 
 number of lessons from this exercise including that some of the GCP services were still in alpha release and not 
@@ -126,10 +128,15 @@ suitable for the workloads and SLAs that we required. This was the first of many
 make: use a cloud service or build our own tool. In this case, we opted to implement Airflow on GCP VMs. To help us 
 make these decisions we evaluated the priority of various criteria, such as vendor support of the service, vendor 
 independence, and impact of this decision on other teams.
+因此，我们做了一项实验，基于GCP利用Dataproc和Dataflow上运行批量任务。通过这次实验，我们了解到一些GCP服务仍然在测试阶段，并不适合我们要求的
+工作负载和SLAs。这是我们将会做出的很多相似决定的第一个：使用云服务还是构建自己的工具。在这个情况下，我们选择在GCP虚拟机上实现Airflow。为了
+帮助我们做出这些决定，我们评估了各种标准的优先级，例如：厂商支持的服务，厂商的自主性，以及这些决定对其他团队的影响。
 
 There is no right answer to these questions. We believe that these questions and criteria need to be identified for each 
 team to consider them and make the best decision possible. We are also not averse to revisiting these decisions in the 
 future when we have more information or alpha and beta projects roll out into general availability (GA).
+这些问题没有标准答案。我们相信这些问题和标准需要每个团队考虑各自的情况并尽可能作出最好的选择。我们不希望当得到更多信息或者测试版本的项目转到GA版本
+后再次做这些决定。
 
 Meetings
 会议
@@ -137,15 +144,20 @@ Over the course of five months, we met with the Google team multiple times. Each
 goals, ranging from short general introductions of team members to full day deep dives on various topics such as using 
 container services in the cloud. In addition to providing key information, these meetings also reinforced a shared 
 engineering culture between Etsy and Google.
+在过去五个月的时间里，我们和谷歌团队进行了多次会议。每次会议都有明确的目标，从简单的团队成员介绍到整天多个话题的讨论，例如在云上使用容器服务。
+除了提供关键信息外，这些会议还加强了Etsy和谷歌工程师文化交流。
 
 We also met with reference customers to discuss what they learned migrating to the cloud and what to look out for on our 
 journey. The time spent with these companies was unbelievably worthwhile and demonstrated the amazing open culture that 
 is pervasive among technology companies in NY.
+我们还和相关客户讨论了他们在向云迁移时学习到的经验，并探索自己的方向。和这些公司在一起的时间是非常值得的，并且在纽约的科技公司里这种开放的文化
+是非常普遍的。
 
 We also met with key stakeholders within Etsy to keep them informed of our progress and to invite their input on key 
 directional decisions such as how to balance the mitigation of financial risk with the time-discounted value of cost 
 commitments. Doing so provided decision makers with a shared familiarity and comfort with the process and eliminated 
 the possibility of surprise at the final decision point.
+我们还和Etsy内部的相关利益人会面，使他们了解我们的进展情况，并在邀请他们在关键问题上发表意见，例如如何平衡缓解财务风险与成本的时间贴现。
 
 The Decision
 决定
@@ -153,29 +165,43 @@ By this point we had thousands of data points from stakeholders, vendors, and en
 called a decision matrix that is used to evaluate multiple-criteria decision problems. This tool helped organize and 
 prioritize this data into something that could be used to impartially evaluate each vendor’s offering and proposal. 
 Our decision matrix contained over 200 factors prioritized by 1,400 weights and evaluated more than 400 scores.
+基于我们已经从相关利益人、厂商和工程师团队获得了成千上万的想法。我们使用决策矩阵的方法来评估有多个判断条件的问题。这个工具帮助组织和优化每个厂商
+的提议，并作出公平的评估。我们的决策矩阵包括200多个因子，优先级为1400个权重，并评估了超过400的分数。
 
 This process began with identifying the overarching functional requirements. We identified relationship, cost, ease of 
 use, value-added services, security, locations, and connectivity as the seven top-level functional requirement areas. We 
 then listed every one of the 200+ customer requirements (customers referring to engineering teams and stakeholders) and 
-weighted them by how well each supported the overall functional requirements. We used a 0, 1, 3, 9 scale to indicate 
+weighted them by how well each supported the overall functional requirements. We used a 0, 1, 3, 9 scale to indicate
+这个过程是从识别重要的功能性需求开始的。我们确定了关系、成本、易用性、服务增值、安全、位置以及连接七个顶层功能的需求。我们列出了200多个客户的每个
+需求（客户指的是工程师团队和相关利益人），并通过如何很好地支持全部的功能性需求作为权重。我们用0、1、3、9来标识
+![](https://codeascraft.com/wp-content/uploads/2018/01/example_scale-768x201.png) 
 the level of support. For example, the customer requirement of “autoscaling support” was weighted as a 9 for 
 cost (as it would help reduce cost by dynamically scaling our compute clusters up and down), a 9 for ease of 
 use (as it would keep us from having to manually spin up and down VMs), a 3 for value-added services (as it is an 
 additional service offered beyond just basic compute and storage but it isn’t terribly sophisticated), and a 0 for 
 supporting other functional requirements. Multiple engineering teams performed an in-depth evaluation and weighting 
 of these factors. Clear priorities began to emerge as a result of the nonlinear weighting scale, which forces overly 
-conservative scorers to make tough decisions on what really matters.  
+conservative scorers to make tough decisions on what really matters.
+支持的级别。例如：“自动伸缩”需求的权重是9（通过自动伸缩我们的集群启动和关闭有助于降低成本），易用性也是9（这可以让我们手动启动和关闭虚拟机），
+服务增值是3（作为增值服务只是提供基本的计算和存储，并不是特别复杂），其他功能性需求则是0。多个工程师团队对这些因素做了深入的评估和权衡。明确
+优先的事项并不是以先行增长的，这使得在决定哪些事情是真正重要的时显得比较困难。
+![](https://codeascraft.com/wp-content/uploads/2018/01/qfd.png)  
 
 We then used these weighted requirements to rank each vendor’s offering. We again used a 0, 1, 3, 9 scale for how well 
 each cloud vendor met the requirement. Continuing with our “autoscaling support” example, we scored each cloud vendor a 
 9 for meeting this requirement completely in that all the vendors we evaluated provided support for autoscaling compute 
 resources as native functionality. The total scores for each vendor reached over 50,000 points with GCP exceeding the 
 others by more than 10%.
+然后，我们利用这些加权对每个厂商的产品进行排名。我们还是利用0、1、3、9来对每个云厂商在需求的实现上做评分。继续以我们的“自动伸缩”为例，我们给
+每个完整地实现了自动伸缩计算资源的厂商打9分。每个厂商的总分分数都超过了50,000点，并且GCP超过了其他的10%。
+![](https://codeascraft.com/wp-content/uploads/2018/01/decision_matrix.png)
 
 As is likely obvious from the context, it should be noted that Etsy’s decision matrix (filled with Etsy’s requirements, 
 ranked with Etsy’s weights by Etsy’s engineers) is applicable only to Etsy. We are not endorsing this decision as right 
 for you or your organization, but rather we are attempting to provide you with insight into how we approach decisions 
 such as these that are strategic and important to us.
+很明显，根据上文Etsy的决策矩阵应该只适用于Etsy（根据Etsy的需求填写，由Etsy的工程师做权重排名）。我们不认为这个决定对于你或者你们组织是正确的，
+但是我们尝试给你提供我们的决策过程，这些对我们来说是战略而且重要。
 
 Just the beginning
 只是开始
@@ -187,5 +213,9 @@ migration in about two years. We will do this while continuing to focus on innov
 risk during the transition period. We look forward to the opportunities that moving to GCP provides us and are 
 particularly excited about this transformational change allowing us to focus more on core, strategic services for the 
 Etsy marketplace by partnering with a best-in-class service provider.
+现在，乐趣和工作开始了。这个过程我们花费了五个月，是一个全职的技术项目。数十名工程师和项目管理人员，还有几个律师，财务人员在某些情况下会全职
+做这些工作。不必说，这不是无关紧要的工作，而是一个转移到GCP的多年项目的开始。我们有一个积极的时间表，要在两年内实现我们的目标。我们会继续关注
+创新的产品特色上这么做，并在过度期间最小化风险。我们期待迁移到GCP后带来的机遇，尤其兴奋的是，在转型过程中允许我们更多地关注核心，通过和一流的
+服务提供商在Etsy市场上的战略服务。
 
 https://codeascraft.com/2018/01/04/selecting-a-cloud-provider/
