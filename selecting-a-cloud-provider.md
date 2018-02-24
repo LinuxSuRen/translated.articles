@@ -65,6 +65,7 @@ Each Responsible person owned the gathering of requirements and the mapping of d
 accountable person ensured the responsible person had the time, resources, and information they needed to complete the 
 project and ultimately signed off that it was done.
 每个负责人都拥有对他们项目需求的收集和依赖关系的责任。义务人要确保责任人有时间、资源和完成项目所需要的信息，并最终确认完成。
+![](https://codeascraft.com/wp-content/uploads/2018/01/RACI.png)
 
 Architectural Review
 架构审查
@@ -83,22 +84,34 @@ creation in the cloud including: greater flexibility, accountability, security, 
 provisioning team evaluated several tools against these goals, discussed them, and then proposed new workflows in an 
 architecture review. The team concluded by proposing we use Terraform in combination with Packer to build the base OS 
 images.
+我们发现要合理地评估很多云服务商，需要理解我们系统的最终状态。例如：在我们的服务器托管中心已经通过一套工具实现了自动化构建裸服务器和虚拟机。
+我们还使用Chef管理和配置裸服务器和虚拟机。我们定义了一些关键指标用于选择在云环境中创建基础设施的工具，包括：高灵活性、可靠性、安全性和集中访
+问控制。我们的预备团队借助这些指标评估了几个工具，在架构审查中讨论并提出了新的流程。根据提议，我们决定使用Terraform中的Packer来做基础操作系统
+镜像的编排构建。
 
 Ultimately, we held 25 architectural reviews for major components of our system and environments. We also held eight 
 additional workshops for certain components we felt required more in-depth review. In particular, we reviewed the 
 backend systems involved in generating pages of etsy.com (a.k.a. the production render path) with a greater focus on 
 latency constraints and failure modes. These architectural reviews and workshops resulted in a set of requirements 
 that we could use to evaluate the different cloud providers.
+最终，我们对我们系统和环境的主要组件做了25次架构审查。以及认为需要深入审查的八个组件做了研讨。特别地，我们审查了etsy.com生成页面的后端系统
+，主要关注延时约束和故障模式。这些审查和研讨会得出了一套用于评估不同云服务商的需求。
 
 How it Fits Together
 Once we had a firm-ish set of requirements for the major components of the system, we began outlining the order of 
 migration. In order to do this we needed to determine how the components were all interrelated. This required us to 
 graph dependencies, which involved teams of engineers huddled around whiteboards discussing how systems and subsystems 
 interact.
+一旦我们有了系统主要组件的需求，就开始规划迁移的顺序。为了做到这一点，需要确定这些组件之间是如何关联的。这需要我们相关的工程师一起讨论系统
+和子系统之间的交互并在白板上画出依赖关系。
+![](https://codeascraft.com/wp-content/uploads/2018/01/dependency_map.jpg)
 
 The dependency graphing exercises helped us identify and document all of the supporting parts of each major component, 
 such as the scheduling and monitoring tools, caching pools, and streaming services. These sessions ultimately resulting 
-This was not a decisionin high-level estimates of project effort and timing, mapped in Gantt-style project plans.
+in high-level estimates of project effort and timing, mapped in Gantt-style project plans.
+画出依赖的过程可以帮助我们识别并记录每个主要组件的支撑部分，例如：规划和监控工具、缓存池和流式服务。这些会议最终得出了项目工作和时间的高层预估，
+并印射到了甘特式的项目计划中。
+![](https://codeascraft.com/wp-content/uploads/2018/01/project_plan.png)
 
 Experimentation
 实验
