@@ -9,8 +9,8 @@ The decision to run our own hardware in data centers was the right decision at t
  and are incredibly excited about this decision. This marks a shift for Etsy from infrastructure self-reliance to a 
  best-in-class service provider. This shift allows us to spend less time maintaining our own infrastructure and more 
  time on strategic features and services that make the Etsy marketplace great.
-自从2005年Etsy网站开始运营，Etsy.com和大多数相关的服务就被部署在自我管理的数据中心。今年早些时候，我们决定评估是否要把所有服务部署到云上。
-那时候，在我们自己的硬件上运营数据中心是一个正确的决定，基础设施即服务（IaaS）和平台即服务（PaaS）在这些年里已经发生了戏剧性的变化。是时候
+自从2005年Etsy网站开始运营，Etsy.com和大多数相关的服务就被部署在自托管的数据中心。今年早些时候，我们决定评估是否要把所有服务部署到云上。
+当时，在我们自己的硬件上运营数据中心是一个正确的决定，基础设施即服务（IaaS）和平台即服务（PaaS）在这些年里已经发生了戏剧性的变化。是时候
 重新评估我们的决定了。我们最近宣布选择谷歌云平台（GCP）作为我们的云提供商，而且这是个明智的决定。这标志着Etsy从自托管转为选择了一流的提供商。
 这使得我们在维护基础设施上节省了时间，而可以在战略特性和服务上投入更多的精力，从而巩固了Etsy市场。
 
@@ -32,8 +32,8 @@ project made up of many smaller projects. In order to properly evaluate each clo
 identify all of the sub-projects, determine the specific requirements of each sub-project, and then use these 
 requirements to evaluate the various providers. Also, to scope the entire project, we needed to determine the sequence, 
 effort, dependencies, priority, and timing of each sub-project.
-而迁移到云托管提供商可以被认为是单一项目，它确实是由很多较小的项目组成的非常大的项目。为了能够正确、合理地评估每个提供商，我们需要识别出每个
-子项目，了解它们的特殊需求，并以此作为评估的依据。而且，为了确定整个项目的范围，我们需要确定顺序、效果、依赖和每个子项目的时机。
+而迁移到云托管提供商可以被认为是单一项目，但它确实是由很多较小的项目组成的非常大的项目。为了能够正确、合理地评估每个提供商，我们需要识别出每个
+子项目，了解它们的特殊需求，并以此作为评估的依据。而且，为了确定整个项目的范围，我们需要确定顺序、工作量、依赖和每个子项目的时机。
 
 We started by identifying eight major projects, including the production render path for the site, the site’s search 
 services, the production support systems such as logging, and the Tier 1 business systems like Jira. We then divided 
@@ -45,8 +45,8 @@ latency tolerance of our MySQL databases but also our data warehousing requireme
 To help gather all of these requirements, we used a RACI model to identify subproject ownership.
 我们确定了八个主要的项目，包括网站的生产路径，搜索服务，日志等生产支持系统，像Jira这样的一级业务系统。然后，我们把这些工程更进一步拆分成组件，
 例如：MySQL和Memcached作为生产路径。通过这样的实践，我们最终确定了30个子项目。为了确定每个子项目的需求，我们需要向各个组织收集专业知识。
-没有人或者项目团队可以准确及时地收集所有需求。例如：我们不仅仅需要知道MySQL数据库的延时容忍度还包括新增和删除数据API对数据仓库的需求。为了
-帮助收集所有的需求，我们使用RACI模型来确定子项目的关系。
+没人或者项目团队可以准确及时地收集所有需求。例如：我们不仅仅需要知道MySQL数据库的延时容忍度还包括新增和删除数据API对数据仓库的需求。为了
+方便收集所有的需求，我们使用RACI模型来确定子项目的关系。
 
 RACI
 The RACI model is used to identify the responsible, accountable, consulted, and informed people for each sub-project. 
@@ -73,7 +73,7 @@ Etsy has long used an architectural review process, whereby any significant chan
 technology, architecture, or design, undergoes a peer review. As these require a significant contribution of time from 
 senior engineers, the preparation for these is not taken lightly. Experts across the organization collaborated to solicit 
 diverse viewpoints and frequently produced 30+ page documents for architectural review.
-Etsy长期依赖都有架构审查的过程，重要的环境改变——不管是技术、架构还是设计，都需要经过同级审查。由于这需要高级工程师贡献大量的时间，因此准备工作
+Etsy长期以来都有架构审查的过程，重要的环境改变——不管是技术、架构还是设计，都需要经过同级审查。由于这需要高级工程师贡献大量的时间，因此准备工作
 不能掉以轻心。组织之间的专家合作下，不同的观点在架构审核中通常会产生30多页内容。
 
 We determined that properly evaluating various cloud providers required an understanding of the desired end state of 
@@ -84,7 +84,7 @@ creation in the cloud including: greater flexibility, accountability, security, 
 provisioning team evaluated several tools against these goals, discussed them, and then proposed new workflows in an 
 architecture review. The team concluded by proposing we use Terraform in combination with Packer to build the base OS 
 images.
-我们发现要合理地评估很多云服务商，需要理解我们系统的最终状态。例如：在我们的服务器托管中心已经通过一套工具实现了自动化构建裸服务器和虚拟机。
+我们发现想要合理地评估很多云服务商，需要明白我们的系统最终要达到的状态。例如：在我们的服务器托管中心，已经通过一套工具实现了自动化构建裸服务器和虚拟机。
 我们还使用Chef管理和配置裸服务器和虚拟机。我们定义了一些关键指标用于选择在云环境中创建基础设施的工具，包括：高灵活性、可靠性、安全性和集中访
 问控制。我们的预备团队借助这些指标评估了几个工具，在架构审查中讨论并提出了新的流程。根据提议，我们决定使用Terraform中的Packer来做基础操作系统
 镜像的编排构建。
@@ -94,10 +94,11 @@ additional workshops for certain components we felt required more in-depth revie
 backend systems involved in generating pages of etsy.com (a.k.a. the production render path) with a greater focus on 
 latency constraints and failure modes. These architectural reviews and workshops resulted in a set of requirements 
 that we could use to evaluate the different cloud providers.
-最终，我们对我们系统和环境的主要组件做了25次架构审查。以及认为需要深入审查的八个组件做了研讨。特别地，我们审查了etsy.com生成页面的后端系统
-，主要关注延时约束和故障模式。这些审查和研讨会得出了一套用于评估不同云服务商的需求。
+最终，对我们系统和环境的主要组件做了25次架构审查。而且对认为需要深入审查的八个组件做了研讨。特别地，我们审查了etsy.com生成页面的后端系统
+，主要关注的是延时约束和故障模式。这些审查和研讨会得出了一套用于评估不同云服务商的需求。
 
 How it Fits Together
+如何做整合
 Once we had a firm-ish set of requirements for the major components of the system, we began outlining the order of 
 migration. In order to do this we needed to determine how the components were all interrelated. This required us to 
 graph dependencies, which involved teams of engineers huddled around whiteboards discussing how systems and subsystems 
@@ -109,7 +110,7 @@ interact.
 The dependency graphing exercises helped us identify and document all of the supporting parts of each major component, 
 such as the scheduling and monitoring tools, caching pools, and streaming services. These sessions ultimately resulting 
 in high-level estimates of project effort and timing, mapped in Gantt-style project plans.
-画出依赖的过程可以帮助我们识别并记录每个主要组件的支撑部分，例如：规划和监控工具、缓存池和流式服务。这些会议最终得出了项目工作和时间的高层预估，
+画依赖的过程有助于我们识别并记录每个主要组件的支撑部分，例如：调度和监控工具、缓存池和流式服务。这些会议最终得出了项目工作和时间的高层预估，
 并印射到了甘特式的项目计划中。
 ![](https://codeascraft.com/wp-content/uploads/2018/01/project_plan.png)
 
@@ -120,7 +121,7 @@ understanding of the effort required to migrate and the challenges that we would
 initial experiment, however, we did not use GCP, so we didn’t have the same level of understanding of the cloud 
 provider we ultimately chose.
 在今年早些时候，我们在云服务商提供的服务上运行了一些Hadoop任务，这有助于我们理解迁移的需求以及在伸缩时面临的挑战。然而，在这次实验中，我们没有
-使用GCP，因此没有对云服务商最终选择的理解上保持一致。
+使用GCP，因此没有对云服务商最终选择上得出一致的理解。
 
 We therefore undertook an experiment to enable batch jobs to run on GCP utilizing Dataproc and Dataflow. We learned a 
 number of lessons from this exercise including that some of the GCP services were still in alpha release and not 
@@ -128,15 +129,15 @@ suitable for the workloads and SLAs that we required. This was the first of many
 make: use a cloud service or build our own tool. In this case, we opted to implement Airflow on GCP VMs. To help us 
 make these decisions we evaluated the priority of various criteria, such as vendor support of the service, vendor 
 independence, and impact of this decision on other teams.
-因此，我们做了一项实验，基于GCP利用Dataproc和Dataflow上运行批量任务。通过这次实验，我们了解到一些GCP服务仍然在测试阶段，并不适合我们要求的
+因此，我们做了一项实验，基于GCP利用Dataproc和Dataflow运行批量任务。通过这次实验，我们了解到一些GCP服务仍然在测试阶段，并不适合我们要求的
 工作负载和SLAs。这是我们将会做出的很多相似决定的第一个：使用云服务还是构建自己的工具。在这个情况下，我们选择在GCP虚拟机上实现Airflow。为了
 帮助我们做出这些决定，我们评估了各种标准的优先级，例如：厂商支持的服务，厂商的自主性，以及这些决定对其他团队的影响。
 
 There is no right answer to these questions. We believe that these questions and criteria need to be identified for each 
 team to consider them and make the best decision possible. We are also not averse to revisiting these decisions in the 
 future when we have more information or alpha and beta projects roll out into general availability (GA).
-这些问题没有标准答案。我们相信这些问题和标准需要每个团队考虑各自的情况并尽可能作出最好的选择。我们不希望当得到更多信息或者测试版本的项目转到GA版本
-后再次做这些决定。
+这些问题没有标准答案。我们相信这些问题和标准，需要每个团队根据各自的情况考虑，并尽可能作出最好的选择。我们不希望当得到更多信息或者测试版本的项目
+转到GA版本后再次做这些决定。
 
 Meetings
 会议
@@ -144,7 +145,7 @@ Over the course of five months, we met with the Google team multiple times. Each
 goals, ranging from short general introductions of team members to full day deep dives on various topics such as using 
 container services in the cloud. In addition to providing key information, these meetings also reinforced a shared 
 engineering culture between Etsy and Google.
-在过去五个月的时间里，我们和谷歌团队进行了多次会议。每次会议都有明确的目标，从简单的团队成员介绍到整天多个话题的讨论，例如在云上使用容器服务。
+在过去五个月的时间里，我们和谷歌的团队进行了多次会议。每次会议都有明确的目标，从简单的团队成员介绍到整天多个话题的讨论，例如在云上使用容器服务。
 除了提供关键信息外，这些会议还加强了Etsy和谷歌工程师文化交流。
 
 We also met with reference customers to discuss what they learned migrating to the cloud and what to look out for on our 
@@ -157,7 +158,7 @@ We also met with key stakeholders within Etsy to keep them informed of our progr
 directional decisions such as how to balance the mitigation of financial risk with the time-discounted value of cost 
 commitments. Doing so provided decision makers with a shared familiarity and comfort with the process and eliminated 
 the possibility of surprise at the final decision point.
-我们还和Etsy内部的相关利益人会面，使他们了解我们的进展情况，并在邀请他们在关键问题上发表意见，例如如何平衡缓解财务风险与成本的时间贴现。
+我们还和Etsy内部的相关利益人交流，使他们了解我们的进展情况，并邀请他们在关键问题上发表意见，例如如何平衡缓解财务风险与成本的时间贴现。
 
 The Decision
 决定
@@ -165,7 +166,7 @@ By this point we had thousands of data points from stakeholders, vendors, and en
 called a decision matrix that is used to evaluate multiple-criteria decision problems. This tool helped organize and 
 prioritize this data into something that could be used to impartially evaluate each vendor’s offering and proposal. 
 Our decision matrix contained over 200 factors prioritized by 1,400 weights and evaluated more than 400 scores.
-基于我们已经从相关利益人、厂商和工程师团队获得了成千上万的想法。我们使用决策矩阵的方法来评估有多个判断条件的问题。这个工具帮助组织和优化每个厂商
+基于我们已经从相关利益人、厂商和工程师团队获得了成千上万的点子。我们使用决策矩阵的方法来评估有多个判断条件的问题。这个工具帮助组织和优化每个厂商
 的提议，并作出公平的评估。我们的决策矩阵包括200多个因子，优先级为1400个权重，并评估了超过400的分数。
 
 This process began with identifying the overarching functional requirements. We identified relationship, cost, ease of 
@@ -184,7 +185,7 @@ of these factors. Clear priorities began to emerge as a result of the nonlinear 
 conservative scorers to make tough decisions on what really matters.
 支持的级别。例如：“自动伸缩”需求的权重是9（通过自动伸缩我们的集群启动和关闭有助于降低成本），易用性也是9（这可以让我们手动启动和关闭虚拟机），
 服务增值是3（作为增值服务只是提供基本的计算和存储，并不是特别复杂），其他功能性需求则是0。多个工程师团队对这些因素做了深入的评估和权衡。明确
-优先的事项并不是以先行增长的，这使得在决定哪些事情是真正重要的时显得比较困难。
+优先的事项并不是以线性增长的，这使得在决定哪些事情是真正重要的时显得比较困难。
 ![](https://codeascraft.com/wp-content/uploads/2018/01/qfd.png)  
 
 We then used these weighted requirements to rank each vendor’s offering. We again used a 0, 1, 3, 9 scale for how well 
@@ -213,7 +214,7 @@ migration in about two years. We will do this while continuing to focus on innov
 risk during the transition period. We look forward to the opportunities that moving to GCP provides us and are 
 particularly excited about this transformational change allowing us to focus more on core, strategic services for the 
 Etsy marketplace by partnering with a best-in-class service provider.
-现在，乐趣和工作开始了。这个过程我们花费了五个月，是一个全职的技术项目。数十名工程师和项目管理人员，还有几个律师，财务人员在某些情况下会全职
+现在，乐趣和工作开始了。这个过程我们花费了五个月，是一个全职的技术项目。数十名工程师和项目管理人员，还有几个律师、财务人员在一些情况下会全职
 做这些工作。不必说，这不是无关紧要的工作，而是一个转移到GCP的多年项目的开始。我们有一个积极的时间表，要在两年内实现我们的目标。我们会继续关注
 创新的产品特色上这么做，并在过度期间最小化风险。我们期待迁移到GCP后带来的机遇，尤其兴奋的是，在转型过程中允许我们更多地关注核心，通过和一流的
 服务提供商在Etsy市场上的战略服务。
