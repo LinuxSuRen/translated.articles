@@ -26,20 +26,23 @@ The top job, according to Glassdoor’s report, is data scientist. Data powers v
 technology development, science, transportation and even sports. When coupled with tech skills like programming languages, 
 a job candidate will find that many doors open on the job market. According to the report, data scientists earn a median 
 annual salary of $110,000, and has a high score for job satisfaction.
-根据Glassdoor的报告，数据科学家是一个高端职位。数据驱动着商业的多方面，技术开发、科学、运输甚至是体育。像编程语言的这样技术技能，在人才市场上有很多空缺。
+根据Glassdoor的报告，数据科学家是一个高端职位。数据驱动着商业的多方面，技术开发、科学、运输甚至是体育。像编程语言的这样技术技能，在人才市场上有很多空缺。根据这个报告，数据科学家能拿到中等水平的年薪$110,00，而且幸福感指数比较高。
 
 Says Chamberlain: “Data scientist has ruled as one of the hottest jobs for years, proven by its third consecutive No. 1 
 ranking on Glassdoor’s 50 Best Jobs in America list. This is due to the high demand (4,524 open jobs), the high 
 salary ($110,000 median base salary) and high job satisfaction (4.2). Not only are tech companies scrambling to hire 
 data scientists, but industries across the board, from health care to nonprofits to retail, are also searching for this 
 talent.”
+Chamberlain提到：“根据Glassdoor给出的美国最好的50个工作排名中，数据科学家已经是第三次连续排名第一，证明这个职位确实已经热门了很多年。这得益于高需求（4,524个开放的职位），高薪水（$110,000的中等基础薪水），以及较高的职业满意度（4.2）。不仅仅是技术公司在争着雇佣数据科学家，从健康医疗到非盈利机构，再到零食业，整体都在寻找这样的人才。
 
 FORBES’ staff writer Jeff Kauflin did an assessment of the most useful skills for data analysts, which you can read here.
+从这里，你可以看到，福布斯的撰稿人Jeff Kauflin推测的对于数据分析而言最有用的技能。
 
 Second on Glassdoor’s ranking is the role of DevOps engineer. In that role, a candidate must be able to build services 
 within a company’s digital infrastructure, test them, oversee or work in teams and wear several hats (figuratively, not 
 literally—though headwear is an option, I’m guessing). It’s worth noting that it is a difficult role to fill for many 
 organizations, which empowers the job seeker.
+Glassdoor上排名第二的是DevOps工程师。这样的角色，候选人需要能够基于公司的数字化基础设施，构建服务，进行测试，在团队中监督并且带多顶帽子（我猜，这是个比喻，而不是字面意义上的帽子）。值得注意得失，对于很多组织来说，很难填补这样的人员。
 
 By the numbers, DevOps engineers make an annual median salary of $105,000, and according to Glassdoor’s reviews, score 
 four out of five in the job satisfaction rating.
@@ -47,4 +50,3 @@ four out of five in the job satisfaction rating.
 Third on the list is marketing manager, a role that requires overseeing marketing campaigns and initiatives, either 
 within a company or as part of a marketing firm. The job pays a median $85,000 a year and gets a four out of five for 
 job satisfaction.
-
