@@ -20,11 +20,13 @@ satisfaction,” says Glassdoor Chief Economist, Andrew Chamberlain, as part of 
 “In particular for job satisfaction, our research shows that higher pay is statistically linked to higher satisfaction, 
 but the impact is actually small. Money can buy happiness, but other workplace factors actually have a larger impact on 
 your overall satisfaction — including culture and values, career opportunities and the quality of senior leadership.”
+“潜力、求职需求和工作满意度”，Glassdoor的首席经济学家Andrew Chamberlain在公司的报告中提到。“就工作满意度来说，我们的调查表明薪水越高满意度越高，但影响不大。金钱可以买到高兴，但工作氛围确实更能让你开心——包括文化和价值观，职业机会和高层领导的能力。“
 
 The top job, according to Glassdoor’s report, is data scientist. Data powers various aspects of business strategy, 
 technology development, science, transportation and even sports. When coupled with tech skills like programming languages, 
 a job candidate will find that many doors open on the job market. According to the report, data scientists earn a median 
 annual salary of $110,000, and has a high score for job satisfaction.
+根据Glassdoor的报告，数据科学家是一个高端职位。数据驱动着商业的多方面，技术开发、科学、运输甚至是体育。像编程语言的这样技术技能，在人才市场上有很多空缺。
 
 Says Chamberlain: “Data scientist has ruled as one of the hottest jobs for years, proven by its third consecutive No. 1 
 ranking on Glassdoor’s 50 Best Jobs in America list. This is due to the high demand (4,524 open jobs), the high 
