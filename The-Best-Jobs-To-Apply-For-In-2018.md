@@ -1,8 +1,9 @@
 The Best Jobs To Apply For In 2018
+2018年最火的职位
 
 As professionals contemplate their careers in 2018, they may be on the lookout for new jobs. They may also be looking 
 for different roles that they can positions themselves to get in the future.
-可能在关注新的工作机会。也在寻找未来可能不同的角色。
+在2018年，出于职业发展的考虑，很多人可能在关注新的工作机会。也在寻找未来可能不同的角色。
 
 To that end, we looked to a report on some great jobs with healthy pay, high job satisfaction ratings and a large number 
 of open positions out there in the job market. The information was provided by Glassdoor.com, a career intel and job 
@@ -13,7 +14,7 @@ of millions of data points and reviews on various positions at more than 740,000
 
 For a look at Glassdoors ten best jobs to apply for, based on reviews provided by its online users, check out our 
 slideshow below. For more details on the top jobs, read on.
-更多有关高端的职位信息，请继续阅读。
+根据Glassdoor的线上用户的职位申请，找出来十个最佳的，下面给出一些。更多有关高端的职位信息，请继续阅读。
 
 “This report highlights jobs that stand out across three key factors: earning potential, hiring demand and job 
 satisfaction,” says Glassdoor Chief Economist, Andrew Chamberlain, as part of the company’s release of the report.  
@@ -46,7 +47,9 @@ Glassdoor上排名第二的是DevOps工程师。这样的角色，候选人需�
 
 By the numbers, DevOps engineers make an annual median salary of $105,000, and according to Glassdoor’s reviews, score 
 four out of five in the job satisfaction rating.
+根据这个数字，DevOps工程师的中等年薪在$105,000，而且，根据Glassdoor的采访，工作满意度在4到5.
 
 Third on the list is marketing manager, a role that requires overseeing marketing campaigns and initiatives, either 
 within a company or as part of a marketing firm. The job pays a median $85,000 a year and gets a four out of five for 
 job satisfaction.
+清单中的第三个是市场管理，这是一个需要留心市场活动和主动性的角色。这个职位的年薪在$85,000，同样在工作满意度上是4到5.
