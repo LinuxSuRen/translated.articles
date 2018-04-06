@@ -114,16 +114,18 @@ Writing your pipeline into a Jenkins file and make it part of your application r
 把你的流水线写入到Jenkinsfile中，并让它作为你的应用代码库的一部分有很多好处：它可以被团队其他成员审查、编辑，该文件可以版本化和程序一起构建。
 
 Your Jenkinsfile can be edited through the Jenkins web interface or with a text editor, and you can also edit it with your prefered IDE, thus making it part of your project. Then, you can configure Jenkins to automatically poll your repo, while triggering new builds when updates to it are detected. This can be done through the following screen on your Project configuration under "Build triggers" section:
-你的Jenkinsfile可以通过Jenkins的web界面或者你的文本编辑器进行编辑，并且你还可以使用你喜欢的IDE编辑，因此可以成为你的工程的一部分。而且，你可以配置Jenkins自动轮训你的库，当检测到有更新时触发新的构建。在 的工程配置页面的“构建触发器”区域可以完成该配置：
+你的Jenkinsfile可以通过Jenkins的web界面或者你的文本编辑器进行编辑，并且你还可以使用你喜欢的IDE编辑，因此可以成为你的工程的一部分。而且，你可以配置Jenkins自动轮询你的库，当检测到有更新时触发新的构建。在工程配置页面的“构建触发器”区域可以完成该配置：
 ![](https://cdn2.hubspot.net/hubfs/208250/Blog_Images/pipe6.png)
 
 Enabling "Poll SCM", allows you to enter a cron-like expression in the Schedule text box. Configuring Jenkins to poll your repo is not a clean and efficient way to retrieve updates. Instead, Git Hooks is a neat way of doing it. The document at Customizing Git - Git Hooks provides information on how to configure it.
-启用“Poll SCM”，
+启用“Poll SCM”，允许你在计划文本框中输入类似cron的表达式。配置Jenkins轮询你的代码库不是一个轻量级、高效获取更新的方式。而Git Hooks是一个比较好的方式。在文章自定义Git——Git Hooks提供了如何配置的内容。
 
 Jenkins limits the execution of any Groovy script by providing a sandbox. The option "Use Groovy Sandbox", shown below, is available in the Pipeline tab, and it allows the scripts to be run by any user without requiring administrator privileges. In this case, the script is run only by using the internal accessible APIs (that allow you to develop your script by using Groovy).
+Jenkins通过提供沙盒来限制执行任意Groovy脚本。在流水线选项卡中，选项“使用Groovy沙盒”显示在下面，它允许用户在没有管理员权限的情况下运行。这种情况下，脚本只能使用内部可访问的API（这一点允许你使用Groovy来开发自己的脚本）。
 ![](https://cdn2.hubspot.net/hubfs/208250/Blog_Images/pipe7.png)
 
 When unchecked, if the script has operations that require approval, an administrator will have to provide them. This method is known as "Script approval". By default, all Jenkins pipelines run in a Groovy sandbox. If the option is checked and unauthorized operations are used, the script will fail when run. Both the whitelist and the blacklist of functions can be checked at Script Security's built-in list. Please refer to In-process Script Approval for more information on this topic.
+
 
 One of the latest Pipeline improvements is the Jenkins Declarative Pipeline, which is a bit different than the Scripted Pipeline that we have been discussing. Both are implementations of the pipeline as code, but the Declarative way is designed to make it easier to develop and maintain your code by providing a more meaningful syntax. These two enhancements are achieved by adding syntax elements allowing you to define a different pipeline skeleton.
 
