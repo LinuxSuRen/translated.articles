@@ -66,16 +66,16 @@ The next required section is the "stage:"
 Your pipeline will consist of several steps that can be grouped in stages. Among these stages you might have:
 你的流水线中的多个步骤可以组合为阶段。在这些阶段中可能包括：
 
-Pull code from the repository
-拉取代码
-Build your project
-构建工程
-Deploy your application
-部署应用
-Perform functional tests
-执行功能测试
-Perform performance tests
-执行性能测试
+* Pull code from the repository
+* 拉取代码
+* Build your project
+* 构建工程
+* Deploy your application
+* 部署应用
+* Perform functional tests
+* 执行功能测试
+* Perform performance tests
+* 执行性能测试
 Each of the these can include more than one action. For example, a stage to deploy your application can consist of copying the files to a specific environment for functional tests and to a dedicated server for performance tests; and once files are copied successfully, proceed to deploy it.
 上面的每个阶段都可以包括多个动作。例如：应用部署的阶段可以包括：为了功能测试而拷贝文件到指定目录，在特定的服务器上执行性能测试；一旦文件包括成功，就执行部署动作。
 
