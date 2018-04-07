@@ -139,12 +139,12 @@ On the other hand, a declarative pipeline can be written by using more elements,
 The script has the elements "pipeline", "agent" and "steps" which are specific to Declarative Pipeline syntax; "stage" is common to both Declarative and Scripted; and finally, node" is specific for the Scripted one.
 脚本元素“pipeline”、“agent”和”steps“都是申明式流水线特有的语法；”stage“对于两种类型都可用；而”node“只能用在脚本式流水线中。
 
-"Pipeline" defines the block that will contain all the script content.
-”Pipeline“ 定义的块包含了所有的脚本内容。
-"Agent" defines where the pipeline will be run, similar to the "node" for the scripted one.
-”Agent“ 定义了流水线要在哪里运行，这和脚本式流水线中的”node“类似。
-"Stages" contains all of the stages.
-”Stages“ 包含所有阶段。
+* "Pipeline" defines the block that will contain all the script content.
+* ”Pipeline“ 定义的块包含了所有的脚本内容。
+* "Agent" defines where the pipeline will be run, similar to the "node" for the scripted one.
+* ”Agent“ 定义了流水线要在哪里运行，这和脚本式流水线中的”node“类似。
+* "Stages" contains all of the stages.
+* ”Stages“ 包含所有阶段。
 In this blog, we have reviewed Jenkins pipeline as code. We also provided guidelines on how to develop your pipeline scripts along with its advantages. For full documentation please refer to Jenkins pipeline.
 在这篇博客中，我们已经大概过了一次Jenkins的流水线即代码。我们还有如何开发流水线脚本的高级内容的教程。而完整的文档则需要查看Jenkins官方文档。
 Learn how to use Jenkins for all of your testing needs for free from our Continuous Testing Academy.
