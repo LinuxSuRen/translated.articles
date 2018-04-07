@@ -125,21 +125,30 @@ Jenkins通过提供沙盒来限制执行任意Groovy脚本。在流水线选项�
 ![](https://cdn2.hubspot.net/hubfs/208250/Blog_Images/pipe7.png)
 
 When unchecked, if the script has operations that require approval, an administrator will have to provide them. This method is known as "Script approval". By default, all Jenkins pipelines run in a Groovy sandbox. If the option is checked and unauthorized operations are used, the script will fail when run. Both the whitelist and the blacklist of functions can be checked at Script Security's built-in list. Please refer to In-process Script Approval for more information on this topic.
-
+当取消勾选，如果脚本中的操作需要批准，则管理员就必须授予权限。这也就是“脚本授权”。默认情况下，所有的Jenkins流水线都运行在Groovy沙盒中。如果勾选该选项，并且用到了未授权的操作，就会在运行时发生错误。白名单和黑名单都可以在脚本安全列表中找到。请参考本文中的脚本授权获取更多信息。
 
 One of the latest Pipeline improvements is the Jenkins Declarative Pipeline, which is a bit different than the Scripted Pipeline that we have been discussing. Both are implementations of the pipeline as code, but the Declarative way is designed to make it easier to develop and maintain your code by providing a more meaningful syntax. These two enhancements are achieved by adding syntax elements allowing you to define a different pipeline skeleton.
+流水线最新改进的地方是申明式流水线，这和我们讨论过的脚本式流水线有些不同。它们都是流水线即代码的实现，但申明式的流水线提供了更容易理解的语法并且容易开发和维护。这两个增强都是增加了语法元素，允许你定义不同的流水线结构。
 
 Basically, a scripted pipeline has the following skeleton:
+基本上，脚本式流水线的结构如下：
 
 On the other hand, a declarative pipeline can be written by using more elements, as shown next:
+另一方面，申明式的流水线可以采用更多的元素，如下所示：
 
 The script has the elements "pipeline", "agent" and "steps" which are specific to Declarative Pipeline syntax; "stage" is common to both Declarative and Scripted; and finally, node" is specific for the Scripted one.
+脚本元素“pipeline”、“agent”和”steps“都是申明式流水线特有的语法；”stage“对于两种类型都可用；而”node“只能用在脚本式流水线中。
 
 "Pipeline" defines the block that will contain all the script content.
+”Pipeline“ 定义的块包含了所有的脚本内容。
 "Agent" defines where the pipeline will be run, similar to the "node" for the scripted one.
+”Agent“ 定义了流水线要在哪里运行，这和脚本式流水线中的”node“类似。
 "Stages" contains all of the stages.
+”Stages“ 包含所有阶段。
 In this blog, we have reviewed Jenkins pipeline as code. We also provided guidelines on how to develop your pipeline scripts along with its advantages. For full documentation please refer to Jenkins pipeline.
-
+在这篇博客中，我们已经大概过了一次Jenkins的流水线即代码。我们还有如何开发流水线脚本的高级内容的教程。而完整的文档则需要查看Jenkins官方文档。
 Learn how to use Jenkins for all of your testing needs for free from our Continuous Testing Academy.
+在我们的Continuous Testing Academy中可以学习到你用于测试的Jenkins所有知识。
 
 You can also integrate BlazeMeter into your Jenkins Pipeline. Try out running your performance tests in BlazeMeter by requesting a demo or putting your URL in the box below, and your test will start in minutes.
+你也可以把BlazeMeter集成到你的Jenkins流水线中。尝试把示例应用在BlazeMeter中做性能测试，或者把你的url放入下面的文本框中，你的测试将会在几分钟内开始运行。
