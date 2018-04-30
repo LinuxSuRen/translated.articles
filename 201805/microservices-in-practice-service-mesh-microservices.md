@@ -1,3 +1,5 @@
+[original](https://medium.com/microservices-in-practice/service-mesh-for-microservices-2953109a3c9a)
+
 Kasun Indrasiri
 Director- Integration Architecture @WSO2, Author, Blogger, Coder, committer @ Apache, Microservices Evangelist
 Sep 15, 2017
@@ -7,13 +9,13 @@ Microservices architecture has been evolving a lot during last couple years and 
 Why ‘Service Mesh’?
 As with many emerging technologies, there was a lot of hype around the Microservices Architecture. Most people think that microservices is the answer to all the problems they had with previous architecture such as SOA/ESB. However, when we observe the real world microservices implementations, we can see that most of the functionalities that a centralized bus (ESB) supports are now implemented at microservices level. So, we are more or less solving the same set of fundamental problems, but we are solving them at different dimensions with Microservices.
 
-
+![](https://cdn-images-1.medium.com/max/2000/1*l6rRbQ6pmWFUBy1lr8UAUw.png)
 Figure 1: From centralized integration/ESB to Microservices
 For example, let’s take a scenario where you need to call multiple downstream services in resilient manner and expose the functionality as a another (composite) service. As shown in figure 1, with the ESB architecture, you can easily leverage the inbuilt capabilities of ESB, for building virtual/composite services and functionalities such as circuit breakers, timeouts and service discovery etc., which are useful during inter-service communication.
 
 When you implement the same scenario using Microservices, then you no longer have a centralized integration/ESB layer but a set of (composite and atomic) microservices. So, you have to implement the all these functionalities at the microservices level.
 
-
+![](https://cdn-images-1.medium.com/max/1600/1*BJFhfCfraN25GEY02VPq4g.png)
 Figure 2: Microservice components and service-to-service communication
 Therefore a given microservice which communicates with other services(figure 2), comprises of:
 
@@ -40,7 +42,7 @@ For instance, you don’t need to worry about circuit breaking when your microse
 
 Service-mesh is language agnostic: Since the microservice to service mesh proxy communication is always on top to standard protocols such as HTTP1.x/2.x, gRPC etc., you can write your microservice from any technology and they will still work with the service mesh.
 
-
+![](https://cdn-images-1.medium.com/max/2000/1*DIV3ZADt68hff9_mDIKLug.png)
 Figure 3: Service to service communication with Service Mesh
 
 Let’s try to further understand the service interactions and responsibilities which are shown in figure 3.
