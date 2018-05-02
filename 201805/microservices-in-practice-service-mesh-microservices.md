@@ -73,29 +73,35 @@ Let’s try to further understand the service interactions and responsibilities 
 # 业务逻辑
 
 The service implementation should contain the realization of the business functionalities of a given service. This includes, logic related to it’s business functions, computations, integration with other services/systems(including legacy, proprietary and SaaS) or service compositions, complex routing logics, mapping logic between different message types etc.
-The service implementation should contain the realization of the business functionalities of a given service. This includes, logic related to it’s business functions, computations, integration with other services/systems(including legacy, proprietary and SaaS) or service compositions, complex routing logics, mapping logic between different message types etc.
+服务的实现应该包含业务功能。这包括：业务相关的逻辑，计算，和其他服务、系统或者服务的集成，复杂的路由逻辑，不同消息类型间的映射逻辑等。
+
 
 # Primitive Network Functions
 # 原始网络功能
 
 Although we offload most of the network functions to service mesh, a given service must contain the basic high-level network interactions to connect with the service mesh/side-car proxy. Hence, a given service implementation will have to use a given network library(unlike the ESB world, where you just have to use a very simple abstraction)to initiate network calls (to service mesh only). In most cases, microservices development framework embed the required network libraries to be used for these functions.
+尽管我们把大部分网络功能都交给了服务网格，但服务还是必须包含和服务网格或者 side-car 代理之间基本的高级网络交互。因此，服务的实现必须使用特定的网络库来初始化网络（只是对服务网格的）调用。大多数情况下，微服务开发框架都嵌入了必要的网络库。
 
 # Application Network Functions
 # 应用网络功能
 
 There are application functionalities which tightly coupled to the network, such as circuit breaking, timeouts, service discovery etc. Those are explicitly separated from the service code/business logic, and service mesh facilitate those functionalities out of the box.
+还有一些应用功能和网络紧耦合，例如：断路器、超时、服务发现等。那些已经明确地从服务代码、业务逻辑中分离，并且服务网格使得这些功能开箱即用。
 
 Most of the initial microservices implementations simply ignore the gravity of the network functions offered from a central ESB layer, and they implemented all such functionalities from scratch at each microservice level. Now they have started realizing the importance of having a similar shared functionality as a distributed mesh.
+大多数初期的微服务实现简单地忽略了从中央 ESB 层提供的网络功能，他们从服务层面粗糙地实现了这些功能。现在他们已经开始意识到有一个类似网格这种分享功能的重要性。
 
 # Service Mesh Control Plane
 # 服务网格控制层面
 
 All service mesh proxies are centrally managed by a control pane. This is quite useful when supporting service mesh capabilities such as access control, observability, service discovery etc.
+所有服务网格代理都是由控制面板集中管理。当需要支持访问控制、服务发现等能力时，这就是很有用的。
 
 # Functionalities of a Service Mesh
 # 服务网格的功能
 
 As we have seen earlier, the service mesh offers a set of application network functions while some (primitive) network functions are still implemented the microservices level itself. There is no hard and fast rule on what functionalities should be offered from a service mesh. These are the most common features offered from a service mesh.
+正如我们之前看到的，服务网格提供了一套应用网络功能，一些（原始的）网络功能依然是作为微服务本身实现的。没有固定和快速的规则来说明哪些功能应该由服务网格提供。大多数通用的特性是由服务网格提供的。
 
 * Resiliency for inter-service communications: Circuit-breaking, retries and timeouts, fault injection, fault handling, load balancing and failover.
 
@@ -114,6 +120,7 @@ As we have seen earlier, the service mesh offers a set of application network fu
 * Interservice communication protocols: HTTP1.x, HTTP2, gRPC
 
 # Service Mesh Implementations
+# 服务网格实现
 Linkerd and Istio are two popular open source service mesh implementations. They both follows a similar architecture, but different implementation mechanisms. You can find a very good comparison between these two service mesh implementations at [1].
 
 # Service Mesh — Pros and Cons
