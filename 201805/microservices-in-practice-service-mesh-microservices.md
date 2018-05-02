@@ -31,27 +31,36 @@ Therefore a given microservice which communicates with other services(figure 2),
 Network Functions that take care of the inter-service communication mechanisms (basic service invocation through a given protocol, apply resiliency and stability patterns, service discovery etc.) These network functions are built on top of the underlying OS level network stack.  
 * 网络功能 处理内部服务通信机制（通过给定的协议启用基本服务，实现弹性、稳定、服务发现等）。这些网络功能是基于操作系统层面的网络。  
 Now think about the effort involve in implementing a such microservice. Implementing the functionalities related service-to-service communication from scratch is a nightmare. Rather focusing on the business logic, you will have to spend a lot of time on building service-to-service communication functionalities. And this is even worse if you use multiple technologies to build microservices (such as multiple programming languages as shown in figure 1), because you need to duplicate the same efforts across different languages (e.g. Circuit breaker has to be implemented on Java, Node, Python etc.).  
-
+现在想一下要实现这样的一个微服务需要付出的工作。从头开始实现面向服务通信这样的功能简直就是个噩梦。你将会不得不话大量的时间来维护面向服务通信功能，而不是关注在业务逻辑上。而且，如果你使用了多种技术（例如图1中显示的多种语言）来构建微服务的话，甚至会更糟糕。因为，你需要在不同语言上付出相同的精力（例如：熔断器不得用Java、Node、Python等语言来实现）。
 
 The most complex challenge in realizing microservice architecture is not building the services themselves, but the communication between services.
+实现微服务架构过程中最复杂的挑战不是构建服务本身，而是服务之间的通信。
 
 Since most of the inter-service communication requirements are quite generic across all microservices implementations, we can think about offloading all such tasks to a different layer, so that we can keep the service code independent. That’s where ‘service mesh’ comes into the picture.
+由于大部分内部服务之间的通信需要是通用的，我们可以考虑把这种任务抽离到一个层上，我们就可以保证这个服务代码的独立性。这就是“服务网格”的邮来。
 
 # What is a ‘Service Mesh’?
 # 什么是“服务网格”？
 In a nutshell, a Service Mesh is an inter-service communication infrastructure. With a service mesh,
+简单来说，服务网格也就是内部服务通信框架。在服务网格中，
 
 * A given Microservice won’t directly communicate with the other microservices.
+* 在微服务中，不会直接和其他服务通信。
 
 * Rather all service-to-service communications will take places on-top of a software component called service mesh (or side-car proxy).
+* 所有服务间的通信将会取代软件组件之间的调用成为服务网格（或 side－car 代理）。
 
 * Service Mesh provides the built-in support for some network functions such as resiliency, service discovery etc.
+* 服务网格默认提供部分网络功能，例如：弹性、服务发现等。
 
 * Therefore, service developers can focus more on the business logic while most of the work related to the network communication is offloaded to the service mesh.
+* 因此，服务开发者可以更多地关注业务逻辑，而大部分网络通信相关的工作交给来服务网格。
 
 * For instance, you don’t need to worry about circuit breaking when your microservice call another service anymore. That’s already comes as part of service mesh.
+* 例如：当你的微服务调用其他的服务时，不用再担心断路器问题。那已经是服务网格的一部分了。
 
 * Service-mesh is language agnostic: Since the microservice to service mesh proxy communication is always on top to standard protocols such as HTTP1.x/2.x, gRPC etc., you can write your microservice from any technology and they will still work with the service mesh.
+* 服务网格是语言无关的：服务网格代理通信对微服务来说建立在标准的协议之上，例如：HTTP1.x/2.x, gRPC等,你可以用任何技术来写你的微服务，都是可以兼容服务网格。
 
 ![](https://cdn-images-1.medium.com/max/2000/1*DIV3ZADt68hff9_mDIKLug.png)
 Figure 3: Service to service communication with Service Mesh
@@ -63,6 +72,7 @@ Let’s try to further understand the service interactions and responsibilities 
 # Business Logic
 # 业务逻辑
 
+The service implementation should contain the realization of the business functionalities of a given service. This includes, logic related to it’s business functions, computations, integration with other services/systems(including legacy, proprietary and SaaS) or service compositions, complex routing logics, mapping logic between different message types etc.
 The service implementation should contain the realization of the business functionalities of a given service. This includes, logic related to it’s business functions, computations, integration with other services/systems(including legacy, proprietary and SaaS) or service compositions, complex routing logics, mapping logic between different message types etc.
 
 # Primitive Network Functions
