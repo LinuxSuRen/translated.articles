@@ -104,50 +104,68 @@ As we have seen earlier, the service mesh offers a set of application network fu
 正如我们之前看到的，服务网格提供了一套应用网络功能，一些（原始的）网络功能依然是作为微服务本身实现的。没有固定和快速的规则来说明哪些功能应该由服务网格提供。大多数通用的特性是由服务网格提供的。
 
 * Resiliency for inter-service communications: Circuit-breaking, retries and timeouts, fault injection, fault handling, load balancing and failover.
+* 内部服务间的弹性通信：断路器、重试和超时、故障注入、故障处理、负载均衡和故障切换。
 
 * Service Discovery: Discovery of service endpoints through a dedicated service registry.
+* 服务发现：通过服务注册表发现服务断点。
 
 * Routing: Primitive routing capabilities, but no routing logics related to the business functionality of the service.
+* 路由：原始的路由功能，没有业务相关的路由逻辑。
 
 * Observability: Metrics, monitoring, distributed logging, distributed tracing.
+* 可观测性：指标、监控、分布式日志、分布式跟踪。
 
 * Security: Transport level security (TLS) and key management.
+* 安全：传输层安全（TLS）和 key 管理。
 
 * Access Control: Simple blacklist and whitelist based access control.
+* 访问控制：基于访问控制的简单的黑名单和白名单。
 
 * Deployment: Native support for containers. Docker and Kubernetes.
+* 部署：原生支持容器。Docker 和 Kubernetes。
 
 * Interservice communication protocols: HTTP1.x, HTTP2, gRPC
+* 服务间通信协议：HTTP1.x,HTTP2,gRPC
 
 # Service Mesh Implementations
 # 服务网格实现
 Linkerd and Istio are two popular open source service mesh implementations. They both follows a similar architecture, but different implementation mechanisms. You can find a very good comparison between these two service mesh implementations at [1].
+Linkerd 和 Istio 是两个流行的开源服务网格实现。它们的架构相似，但实现机制不同。你可以在这两个服务网格的实现上做个比较。
 
 # Service Mesh — Pros and Cons
+# 服务网格 － 赞成和反对
 Let’s have a quick look at the pros and cons of service meshes.
+让我们快速地对比下对服务网格的两个观点。
 
 Pros
+赞成
 
 * Commodity features are implemented outside microservice code and they are reusable.
+* 特点是在微服务代码之外实现，具有可重用性。
 
 * Solves most of the problems in Microservices architecture which we used to have ad-hoc solutions: Distributed tracing, logging, security, access control etc.
+* 解决了我们过去在微服务架构中的点对点方案：分布式跟踪、日志、安全、访问控制等等。
 
 * More freedom when it comes to selecting a microservices implementation language: You don’t need to worry about whether a given language supports or has libraries to build network application functions.
+* 在选择微服务实现语言上有了更多的自由：你不用担心是否选择的语言是否支持或者是否有构建网络应用功能的库。
+
 Cons
+反对
 
 * Complexity: Having a service mesh drastically increase the number of runtime instances that you have in a given microservice implementation.
+* 复杂：在微服务实现中，如果有服务网格的话会增加很多运行实例。
 
 * Adding extra hops: Each service call has to go through an extra hop(through service mesh sidecar proxy).
+* 增加了额外的跳跃点：每个服务调用不得不通过一个额外的跳跃点（通过服务网格 sidecar 代理）。
 
 * Service Meshes address a subset of problems: Service mesh only address a subset of inter-service communication problems, but there are a lot of complex problems such as complex routing, transformation/type mapping, integrating with other services and systems, to be solved at your microservice’s business logic.
+* 服务网格解决了一部分问题：服务网格仅仅解决了内部服务通信的一部分问题，但要解决你的微服务中的业务逻辑，还有很多复杂的问题，例如：复杂路由、类型转换映射、于其他服务和系统的集成。
 
 * Immature: Service mesh technologies are relatively new to be declared as full production ready for a large scale deployments.
+* 不成熟：要作为产品进行大规模部署的话，服务网格技术相对较新。
 
 # Conclusion
 # 总结
 
 In summary, service mesh addresses some of the key challenges when it comes to the realization of microservice architecture. It gives you more freedom to select diverse set of microservices implementation technologies as well as to focus more on business logic rather investing more time on network functions between services. However, service mesh won’t solve any of the business logic related or service integration/composition related problems.
-
-Update: “Service Mesh vs API Gateway”?
-
-Please check the articles API Gateways vs Service Mesh for more further information on this.
+总体来说，服务网格在微服务架构中解决了一些关键的挑战。它让你在选择微服务实现技术上有了更多的自由，让你可以更多地关注在业务逻辑上，而不是服务间的网络通信上。然而，服务网格解决不了任何业务逻辑相关的问题，或服务集成、组合的相关的问题。
